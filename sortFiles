@@ -1,0 +1,17 @@
+#!/bin/bash
+
+mkdir -p images sounds documents movies
+
+mv *.jpg *.png *.img images 2>/dev/null
+mv *.mp4 movies 2>/dev/null
+mv *.pdf *.html documents 2>/dev/null
+mv *.mp3 sounds 2>/dev/null
+
+
+
+for folder in *
+do
+
+rmdir $folder 2>/dev/null
+
+done
