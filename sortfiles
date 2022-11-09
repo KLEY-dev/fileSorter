@@ -1,8 +1,19 @@
 #!/bin/bash
 
+
 if [ "$1" = "--help" ] || [ "$1" = "-h" ] ; then
+  echo "here will be help"
+
   exit
 fi
+
+
+if [[ $1 != */ ]] ;then
+ echo Invalid path
+ exit 2
+
+fi
+
 
 mkdir -p $1images $1sounds $1documents $1movies
 
@@ -13,7 +24,7 @@ mv *.pdf *.html $1documents 2>/dev/null
 mv *.mp3 $1sounds 2>/dev/null
 
 
-for folder in *
+for folder in $1*
 do
 
  rmdir $folder 2>/dev/null
